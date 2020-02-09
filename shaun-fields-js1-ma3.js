@@ -19,17 +19,11 @@ const subtraction = (a, b) => a - b;
 /////////////////////////////////////////////////////////////////////////////////////
 // Method 2 Use the fetch command
 fetch("https://api.rawg.io/api/games?genres=sports")
-  .then(function(response) {
-                            return response.json();
-                           })
+  .then(function(response) {return response.json();})
 
-  .then(function(json) {
-                       gamesName(json);
-                       })
-                    
-  .catch(function(error) {
-                       location.href = "error.html";
-                       });
+  .then(function(json) {gamesName(json);})
+
+  .catch(function(error) {location.href = "error.html";});
 
 function gamesName(json) {
   // assign the results array to the variable sportGames
@@ -93,16 +87,13 @@ const queryString = "https://my.site.com?userId=7";
 const params = new URLSearchParams(queryString);
 let id;
 
-if (params.has("userID")) {
-  id = params.get("userID");
+  if (params.has("userID")) {
+    id = params.get("userID");
 
-    if (id < 10) {
-        location.href = "first.html";
-        } else {
-        location.href = "second.html";
-    }
+    if (id < 10) {location.href = "first.html";}
+    else {location.href = "second.html";}}
 
-} else {
+  else {
  // location.href = "third.html";
 }
 
@@ -137,7 +128,7 @@ animalSmall.className = "parrots";
 animalSmall.innerText = `Parrots`;
 
 bigAnimal.before(animalSmall);
-// Answer 6 
+// Answer 6
 // Cows
 // parrots
 // Elephants
@@ -153,15 +144,12 @@ bigAnimal.before(animalSmall);
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Method 7 Fetch and add text to the <div> tag
 fetch("https://api.rawg.io/api/games/3801")
-     .then(function(response) {
-                  return response.json();
-     })
-     .then(function(json) {
-                  generalRating(json);
-     })
-     .catch(function(error) {
-                 console.dir(error);
-      });
+
+     .then(function(response) {return response.json();})
+
+     .then(function(json) {generalRating(json);})
+
+     .catch(function(error) {console.dir(error);});
 
 function generalRating(json) {
   // assign the result which is not an array but a single object to the variable general games
@@ -170,16 +158,16 @@ function generalRating(json) {
   let newhtml = "";
   let ratingValue = "Not rated";
 
-                    if (generalGames.rating) {
-                    // Use the specified rating from the returned object
-                    ratingValue = generalGames.rating;
-                    }
+            if (generalGames.rating) {
+            // Use the specified rating from the returned object
+            ratingValue = generalGames.rating;}
 
-        newhtml += `<div class="rating"> ${generalGames.name} has a rating of ${ratingValue} </div>`;
+            newhtml += `<div class="rating"> ${generalGames.name} has a rating of ${ratingValue} </div>`;
 
-// Select the class rating in the html file            
-const ratingInner = document.querySelector(".rating");
+// Select the class rating in the html file
+  const ratingInner = document.querySelector(".rating");
+
 ratingInner.innerHTML = newhtml;
 }
 // 7th Answer                                                                  shaun-fields-js1-ma3.js:40
-// Assassin’s Creed Liberation HD has a rating of 3.01            
+// Assassin’s Creed Liberation HD has a rating of 3.01
